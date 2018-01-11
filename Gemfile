@@ -10,6 +10,7 @@ end
 ruby File.read('.ruby-version').match(/\d\.\d.\d/)[0]
 
 gem 'dotenv-rails'
+gem 'pg', '~> 0.18.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
@@ -39,7 +40,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails', '~> 4.0'
   gem 'rspec-rails'
 end
 
