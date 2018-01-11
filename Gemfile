@@ -9,8 +9,12 @@ end
 
 ruby File.read('.ruby-version').match(/\d\.\d.\d/)[0]
 
+gem 'devise'
+gem 'doorkeeper'
+gem 'doorkeeper-jwt'
 gem 'dotenv-rails'
 gem 'pg', '~> 0.18.4'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
