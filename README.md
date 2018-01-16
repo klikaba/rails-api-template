@@ -45,8 +45,8 @@ this script will:
 
 TODO:
 
-[] write details about cloning, renaming project and changing git remotes
-[] running specs
-[] generating documentation from specs
-[] add bootstrap for admin login
-[] exclude email from jwt payload
+- [] write details about cloning, renaming project and changing git remotes
+- [] running specs
+- [] generating documentation from specs
+- [] add bootstrap for admin login
+- [] exclude email from jwt payload
