@@ -1,6 +1,6 @@
 # Rails Api Template
 
-[Intro]: https://i.imgur.com/inEuTBN.jpg
+![Take This](https://i.imgur.com/inEuTBN.jpg)
 
 ## Installation
 
@@ -36,8 +36,7 @@ $ rbenv install `cat .ruby-version`
 # inside api template project
 $ bin/setup
 ```
-
-This script will:
+this script will:
 
 - install gem dependencies
 - setup [overcommit](https://github.com/brigade/overcommit) that will execute [rubocop](https://github.com/bbatsov/rubocop) on every commit and run specs on every push.
