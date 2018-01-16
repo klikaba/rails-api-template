@@ -23,4 +23,21 @@ $ source ~/.bashrc
 
 # verify
 $ type rbenv
+
+# inside api template project
+$ rbenv install `cat .ruby-version`
 ```
+
+### Setup Project
+
+```
+# inside api template project
+$ bin/setup
+```
+
+This script will:
+
+- install gem dependencies
+- setup (overcommit)[https://github.com/brigade/overcommit] that will execute (rubocop)[https://github.com/bbatsov/rubocop] on every commit and run specs on every push.
+- create .env.local for you local environment specific configuration. Eg. database configuration.
+- create database and load default schema
