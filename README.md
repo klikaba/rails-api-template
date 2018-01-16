@@ -42,3 +42,11 @@ this script will:
 - setup [overcommit](https://github.com/brigade/overcommit) that will execute [rubocop](https://github.com/bbatsov/rubocop) on every commit and run specs on every push.
 - create [.env.local](https://github.com/bkeepers/dotenv) for you local environment specific configuration. Eg. database configuration.
 - create database and load default schema
+
+TODO:
+
+[] write details about cloning, renaming project and changing git remotes
+[] running specs
+[] generating documentation from specs
+[] add bootstrap for admin login
+[] exclude email from jwt payload
