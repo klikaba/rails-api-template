@@ -1,5 +1,7 @@
 # Rails Api Template
 
+[Intro]: https://i.imgur.com/inEuTBN.jpg
+
 ## Installation
 
 ### Ruby MacOS
