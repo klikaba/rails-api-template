@@ -1,24 +1,26 @@
-# README
+# Rails Api Template
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+### Ruby MacOS
 
-* Ruby version
+```
+$ brew install ruby-build rbenv rbenv-readline rbenv-ctags
 
-* System dependencies
+# inside api template project
+$ rbenv install `cat .ruby-version`
+```
 
-* Configuration
+### Ruby Ubuntu
 
-* Database creation
+```
+$ sudo apt-get update
+$ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+$ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+$ source ~/.bashrc
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# verify
+$ type rbenv
+```
