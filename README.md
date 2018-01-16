@@ -30,6 +30,17 @@ $ type rbenv
 $ rbenv install `cat .ruby-version`
 ```
 
+### Postgres MacOS
+
+Install [Postgres.app](https://postgresapp.com/)
+
+### Postgres Ubuntu
+
+```
+$ sudo apt-get update
+$ sudo apt-get install postgresql postgresql-contrib
+```
+
 ### Setup Project
 
 ```
