@@ -54,10 +54,15 @@ this script will:
 - create [.env.local](https://github.com/bkeepers/dotenv) for you local environment specific configuration. Eg. database configuration.
 - create database and load default schema
 
+### Generate documentation
+
+Write request specs for new endpoints and include defined dox description files. See [dox](https://github.com/infinum/dox) for usage details  and `specs/docs/v1/descriptions` for examples.
+Run `$ rake api:doc:html` to generate documentation. Generated html documentation will be at 'public/api/docs/v1/index.html' and publicly available on api domain. Eg. https://klika-rails-api.herokuapp.com/public/api/docs/v1/index.html
+```
+$ rake api:doc:html
+```
+
 TODO:
 
-- [] write details about cloning, renaming project and changing git remotes
-- [] running specs
-- [] generating documentation from specs
 - [] add bootstrap for admin login
 - [] exclude email from jwt payload
