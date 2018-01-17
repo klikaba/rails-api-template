@@ -57,7 +57,7 @@ this script will:
 ### Generate documentation
 
 Write request specs for new endpoints and include defined dox description files. See [dox](https://github.com/infinum/dox) for usage details  and `specs/docs/v1/descriptions` for examples.
-Run `$ rake api:doc:html` to generate documentation. Generated html documentation will be at 'public/api/docs/v1/index.html' and publicly available on api domain. Eg. https://klika-rails-api.herokuapp.com/public/api/docs/v1/index.html
+Run `$ rake api:doc:html` to generate documentation. Generated html documentation will be saved in 'public/api/docs/v1/index.html' and publicly available on api domain. Eg. https://klika-rails-api.herokuapp.com/api/docs/v1/index.html
 ```
 $ rake api:doc:html
 ```
