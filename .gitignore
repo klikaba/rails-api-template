@@ -24,3 +24,4 @@
 
 # Ignore local dotenv files
 .env.local
+.DS_Store

@@ -4,3 +4,9 @@ AllCops:
     - 'bin/*'
     - 'db/schema.rb'
     - 'db/migrate/*'
+
+Style/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'

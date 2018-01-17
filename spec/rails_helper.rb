@@ -11,6 +11,7 @@ end
 
 require 'spec_helper'
 require 'rspec/rails'
+require 'dox'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -27,7 +28,8 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/docs/**/*.rb')].each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -61,4 +63,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.after(:each, :dox) do |example|
+    example.metadata[:request] = request
+    example.metadata[:response] = response
+  end
+end
+
+Dox.configure do |config|
+  config.desc_folder_path = Rails.root.join('spec/docs/v1/descriptions')
 end
