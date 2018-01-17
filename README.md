@@ -1,24 +1,63 @@
-# README
+# Rails Api Template
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Take This](https://i.imgur.com/inEuTBN.jpg)
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+### Ruby MacOS
 
-* System dependencies
+```
+$ brew install ruby-build rbenv rbenv-readline rbenv-ctags
 
-* Configuration
+# inside api template project
+$ rbenv install `cat .ruby-version`
+```
 
-* Database creation
+### Ruby Ubuntu
 
-* Database initialization
+```
+$ sudo apt-get update
+$ sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+$ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+$ source ~/.bashrc
 
-* How to run the test suite
+# verify
+$ type rbenv
 
-* Services (job queues, cache servers, search engines, etc.)
+# inside api template project
+$ rbenv install `cat .ruby-version`
+```
 
-* Deployment instructions
+### Postgres MacOS
 
-* ...
+Install [Postgres.app](https://postgresapp.com/)
+
+### Postgres Ubuntu
+
+```
+$ sudo apt-get update
+$ sudo apt-get install postgresql postgresql-contrib
+```
+
+### Setup Project
+
+```
+# inside api template project
+$ bin/setup
+```
+this script will:
+
+- install gem dependencies
+- setup [overcommit](https://github.com/brigade/overcommit) that will execute [rubocop](https://github.com/bbatsov/rubocop) on every commit and run specs on every push.
+- create [.env.local](https://github.com/bkeepers/dotenv) for you local environment specific configuration. Eg. database configuration.
+- create database and load default schema
+
+TODO:
+
+- [] write details about cloning, renaming project and changing git remotes
+- [] running specs
+- [] generating documentation from specs
+- [] add bootstrap for admin login
+- [] exclude email from jwt payload
