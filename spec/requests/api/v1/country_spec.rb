@@ -17,7 +17,7 @@ RSpec.describe 'Country', type: :request do
       include Docs::V1::Countries::Index
 
       it 'returns countries', :dox do
-        get '/api/v1/countries',
+        get '/api/v1/countries/',
             headers: { 'Authorization': "bearer #{token.token}" },
             as: :json
         expect(response).to have_http_status(200)

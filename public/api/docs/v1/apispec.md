@@ -22,8 +22,8 @@ Exchange username and password for access token
             {
               "username": "person2@example.com",
               "password": "password",
-              "client_id": "f7d9a9efdb361b3db90ffd2204a86853e1dac50088679114fb9bdeeb3a8cdc73",
-              "client_secret": "af4dd86b01efa69870b8b2f21bbff33a2d725490e790b0621b84dc146981f3da"
+              "client_id": "7d7020ffca04275d74a72582af93653ea9f524b65959fc6dd75c3319cb500329",
+              "client_secret": "760ba39e5656875d071d927df60a29ed268dcc41ce30d16b72f7fcc387063c9c"
             }
 
 + Response 200
@@ -35,12 +35,12 @@ Exchange username and password for access token
     + Body
 
             {
-              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6ImY3ZDlhOWVmZGIzNjFiM2RiOTBmZmQyMjA0YTg2ODUzZTFkYWM1MDA4ODY3OTExNGZiOWJkZWViM2E4Y2RjNzMifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1MTY3OTkyNTMsImp0aSI6IjMxNTYzYTcxLTEyOTMtNDFlYi1hOTgzLTE4MDRlYzg1NjM4MCIsInVzZXIiOnsiaWQiOjE3NCwiZW1haWwiOiJwZXJzb24yQGV4YW1wbGUuY29tIn19.ME1POQeEAoTZkjRtG4j99dnEDbkTmw_uV2Cvn6GIYljKkrMbmZ1idoq71noTu_FISDPD_2DIfC0NWakWzpCqBA",
+              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjdkNzAyMGZmY2EwNDI3NWQ3NGE3MjU4MmFmOTM2NTNlYTlmNTI0YjY1OTU5ZmM2ZGQ3NWMzMzE5Y2I1MDAzMjkifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1MTY3OTk4MjYsImp0aSI6IjhlY2VmNzc1LTZkYmYtNGQ5ZS1hMDE1LTkxNjMxMGY4MzU0NyIsInVzZXIiOnsiaWQiOjIwMiwiZW1haWwiOiJwZXJzb24yQGV4YW1wbGUuY29tIn19.6OT8nu2hMYqQkz4HBsn1qpiFxinAaQEFJBEvL29CNovwTpu44tV9hYJd2HKmDGuBIbnW1wrl9G06Ns_xZFPZpg",
               "token_type": "bearer",
               "expires_in": 60,
-              "refresh_token": "cfe197963c8948cc72d432ff5a9bbec21e4038366efaf8972044810c8904b60c",
-              "created_at": 1516799253,
-              "user_id": 174
+              "refresh_token": "7fbde13a918b0927734425e0b8898945f636f383b30bfea84ad7d7d78ef321de",
+              "created_at": 1516799826,
+              "user_id": 202
             }
 
 ### Refresh access token [POST /oauth/token?grant_type=refresh_token]
@@ -57,9 +57,9 @@ Refresh expired access token
     + Body
 
             {
-              "refresh_token": "9fb02ce8523d2b2d0253684cce5885a0",
-              "client_id": "e818e5369eede65e77a37f0c4cdd520ffce23b2bdeab7ada1237093c171e8520",
-              "client_secret": "d75d781dd140ca3a4704fbfd25859f1fcb2537ced78c8ba52d1856fb71dd780b"
+              "refresh_token": "295e164ec8933dc39b34101e645470bd",
+              "client_id": "940be275f15a19532811911ba5dd5521c6f0a4d93cb989a06bf88a9521ef52c9",
+              "client_secret": "a866f9399d8d63ed2f57997e5e62b982faa7cc8bef4cfd368032833936accada"
             }
 
 + Response 200
@@ -71,86 +71,15 @@ Refresh expired access token
     + Body
 
             {
-              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6ImU4MThlNTM2OWVlZGU2NWU3N2EzN2YwYzRjZGQ1MjBmZmNlMjNiMmJkZWFiN2FkYTEyMzcwOTNjMTcxZTg1MjAifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1MTY3OTkyNTMsImp0aSI6ImEwZTYwNjQwLTU0ZTAtNGQ0ZS05YWM4LWU1ZDAxMzVjY2NjOCIsInVzZXIiOnsiaWQiOjE3NSwiZW1haWwiOiJwZXJzb24zQGV4YW1wbGUuY29tIn19.sDitBi1kwZNCixMwUHBu4Qt2BH6NNYAlxChgUMwfCVxOEW9e-l9mNMl7hwmQ9Fv9sKqzvas-AjJlUYZzYrKo6g",
+              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6Ijk0MGJlMjc1ZjE1YTE5NTMyODExOTExYmE1ZGQ1NTIxYzZmMGE0ZDkzY2I5ODlhMDZiZjg4YTk1MjFlZjUyYzkifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1MTY3OTk4MjYsImp0aSI6ImY0MTliZTRiLTFjN2UtNGIxNy1iOTRhLTJlNWY5NGNiZTM4MyIsInVzZXIiOnsiaWQiOjIwMywiZW1haWwiOiJwZXJzb24zQGV4YW1wbGUuY29tIn19.ws_PSWku6bDfrR8fwohOmd_DSkBklrWmSCGfa-sYNnuxR0paMPKdHWgMFMRwbk6Xtz6diyQ9thpfNlskmDX-Gw",
               "token_type": "bearer",
               "expires_in": 60,
-              "refresh_token": "aeccb1c4626ef8ee19e9bee4efe3435508240c5864a0c3b3b41697554a0b2d2d",
-              "created_at": 1516799253,
-              "user_id": 175
+              "refresh_token": "3307495fb1b11ac090a909ce49957809f7d7d64e99c09dac732029087587e9b9",
+              "created_at": 1516799826,
+              "user_id": 203
             }
 
-# Group Users
-
-
-## Users [/api/v1/users]
-
-
-### Create a user [POST /api/v1/users]
-
-
-+ Request creates new user
-**POST**&nbsp;&nbsp;`/api/v1/users`
-
-    + Headers
-
-            Accept: application/json
-            Content-Type: application/json
-
-    + Body
-
-            {
-              "user": {
-                "email": "user@example.com",
-                "password": "password"
-              }
-            }
-
-+ Response 200
-
-    + Headers
-
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "id": 176,
-              "email": "user@example.com",
-              "created_at": "2018-01-24T13:07:33.566Z",
-              "updated_at": "2018-01-24T13:07:33.566Z",
-              "role": "default"
-            }
-
-### Get a user [GET /api/v1/users/{id}]
-
-+ Parameters
-    + id: `177` (number, required)
-
-+ Request returns a user
-**GET**&nbsp;&nbsp;`/api/v1/users/177?null=`
-
-    + Headers
-
-            Accept: application/json
-            Content-Type: application/json
-
-+ Response 200
-
-    + Headers
-
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "id": 177,
-              "email": "person4@example.com",
-              "created_at": "2018-01-24T13:07:33.577Z",
-              "updated_at": "2018-01-24T13:07:33.577Z",
-              "role": "default"
-            }
-
-# Group countries
+# Group Countries
 
 
 ## Countries [/api/v1/countries]
@@ -1174,4 +1103,75 @@ Refresh expired access token
                   "code": "ZW"
                 }
               ]
+            }
+
+# Group Users
+
+
+## Users [/api/v1/users]
+
+
+### Create a user [POST /api/v1/users]
+
+
++ Request creates new user
+**POST**&nbsp;&nbsp;`/api/v1/users`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "user": {
+                "email": "user@example.com",
+                "password": "password"
+              }
+            }
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "id": 204,
+              "email": "user@example.com",
+              "created_at": "2018-01-24T13:17:06.797Z",
+              "updated_at": "2018-01-24T13:17:06.797Z",
+              "role": "default"
+            }
+
+### Get a user [GET /api/v1/users/{id}]
+
++ Parameters
+    + id: `205` (number, required)
+
++ Request returns a user
+**GET**&nbsp;&nbsp;`/api/v1/users/205?null=`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "id": 205,
+              "email": "person4@example.com",
+              "created_at": "2018-01-24T13:17:06.819Z",
+              "updated_at": "2018-01-24T13:17:06.819Z",
+              "role": "default"
             }

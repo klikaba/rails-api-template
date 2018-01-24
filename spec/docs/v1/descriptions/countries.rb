@@ -7,7 +7,7 @@ module Docs
       document :api do
         resource 'Countries' do
           endpoint '/api/v1/countries'
-          group 'countries'
+          group 'Countries'
         end
       end
 
