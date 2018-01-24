@@ -13,6 +13,7 @@ gem 'devise'
 gem 'doorkeeper'
 gem 'doorkeeper-jwt'
 gem 'dotenv-rails'
+gem 'iso_country_codes'
 gem 'pg', '~> 0.18.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

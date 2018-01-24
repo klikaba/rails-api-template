@@ -38,7 +38,7 @@ Doorkeeper.configure do
 
   # Access token expiration time (default 2 hours).
   # If you want to disable expiration, set this to nil.
-  # access_token_expires_in 2.hours
+  access_token_expires_in 1.minute
 
   # Assign a custom TTL for implicit grants.
   # custom_access_token_expires_in do |oauth_client|
@@ -136,6 +136,8 @@ Doorkeeper.configure do
   # WWW-Authenticate Realm (default "Doorkeeper").
   # realm "Doorkeeper"
 end
+
+Doorkeeper::OAuth::TokenResponse.send :prepend, CustomTokenResponse
 
 Doorkeeper::JWT.configure do
   # Set the payload for the JWT token. This should contain unique information
