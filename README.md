@@ -7,7 +7,7 @@
 ### Ruby MacOS
 
 ```
-$ brew install ruby-build rbenv rbenv-readline rbenv-ctags
+$ brew install ruby-build rbenv rbenv-ctags
 
 # inside api template project
 $ rbenv install `cat .ruby-version`
