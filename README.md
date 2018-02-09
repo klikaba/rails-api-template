@@ -9,8 +9,13 @@
 ```
 $ brew install ruby-build rbenv rbenv-ctags
 
+$ rbenv init
+# follow instructions
+
 # inside api template project
 $ rbenv install `cat .ruby-version`
+$ rbenv local `cat .ruby-version`
+$ gem install bundler
 ```
 
 ### Ruby Ubuntu
