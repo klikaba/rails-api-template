@@ -8,6 +8,7 @@
 
 ```
 $ brew install ruby-build rbenv rbenv-ctags
+$ brew install postgresql
 
 $ rbenv init
 # follow instructions
