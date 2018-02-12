@@ -66,8 +66,3 @@ Run `$ rake api:doc:html` to generate documentation. Generated html documentatio
 ```
 $ rake api:doc:html
 ```
-
-TODO:
-
-- [] add bootstrap for admin login
-- [] exclude email from jwt payload
