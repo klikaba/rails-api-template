@@ -22,7 +22,7 @@ Doorkeeper.configure do
 
     password = user.valid_for_authentication? do
       user.valid_password?(params[:password])
-    end
+    end if user
 
     user if application && user && password
   end
