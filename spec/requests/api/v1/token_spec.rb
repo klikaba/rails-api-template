@@ -19,7 +19,7 @@ RSpec.describe 'Token Manegment', type: :request do
         client_secret: application.secret
       }, as: :json
 
-      parsed = JSON.parse(response.body)
+      parsed = response.parsed_body
       expect(parsed['access_token']).not_to be_empty
       expect(parsed['refresh_token']).not_to be_empty
       expect(parsed['expires_in']).to be_kind_of(Numeric)
@@ -43,7 +43,7 @@ RSpec.describe 'Token Manegment', type: :request do
         client_secret: application.secret
       }, as: :json
 
-      parsed = JSON.parse(response.body)
+      parsed = response.parsed_body
 
       expect(parsed['access_token']).not_to be_empty
       expect(parsed['refresh_token']).not_to be_empty
