@@ -24,7 +24,7 @@ RSpec.describe 'Token Manegment', type: :request do
       expect(parsed['refresh_token']).not_to be_empty
       expect(parsed['expires_in']).to be_kind_of(Numeric)
       expect(parsed['created_at']).to be_kind_of(Numeric)
-      expect(parsed['token_type']).to eq('bearer')
+      expect(parsed['token_type']).to eq('Bearer')
     end
   end
 
@@ -49,7 +49,7 @@ RSpec.describe 'Token Manegment', type: :request do
       expect(parsed['refresh_token']).not_to be_empty
       expect(parsed['expires_in']).to be_kind_of(Numeric)
       expect(parsed['created_at']).to be_kind_of(Numeric)
-      expect(parsed['token_type']).to eq('bearer')
+      expect(parsed['token_type']).to eq('Bearer')
     end
   end
 end

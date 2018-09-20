@@ -10,7 +10,7 @@ end
 ruby File.read('.ruby-version').match(/\d\.\d.\d/)[0]
 
 gem 'devise'
-gem 'doorkeeper'
+gem 'doorkeeper', '~> 4.4.2'
 gem 'doorkeeper-jwt'
 gem 'dotenv-rails'
 gem 'iso_country_codes'
@@ -43,14 +43,16 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug'
-  gem 'factory_bot_rails', '~> 4.0'
+  gem 'factory_bot'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', require: false
-  gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
