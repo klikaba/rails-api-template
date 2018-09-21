@@ -1,4 +1,62 @@
+# API Reference
 
+## Documentation
+
+This reference helps you implement communication with the RESTful API v1. The API uses a JSON format for output. The API is stateless – all requests are validated against an API token. The API token can be obtained from flow defined in Authentication chapter.
+Clients MUST send all JSON API data in request documents with the header `Content-Type: application/json` without any media type parameters.
+
+## Authentication
+
+In order to access the API, you need to contact API developers and provide a **YOUR_REDIRECT_URI** (must be https/ssl). It is an endpoint on your side where API will send the request with the `code` for OAuth 2.0 authorization code flow. You will be give **CLIENT_ID** and **CLIENT_SECRET** and authentication URL.
+
+
+Authentication can be performed using two methods:
+
+[OAuth 2.0](https://oauth.net/2/) protocol with [Password Grant](https://oauth.net/2/grant-types/password/) for first-party clients. Since this involves the client asking the user for their password, it should not be used by third party clients. In this flow, the user's username and password are exchanged directly for an access token. See [Authentication Token Documentation](#authentication-token-post)
+
+
+[OAuth 2.0](https://oauth.net/2/) protocol with [Authorization Code Grant](https://oauth.net/2/grant-types/authorization-code/) flow is used by confidential and public clients to exchange an authorization code for an access token.
+
+![Web Server OAuth Authentication Flow](../../../oauth-flow.png)
+
+1. Request authorization by visiting authorization endpoint
+
+`https://API_URI/oauth/authorize?client_id=CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=`
+
+2. Enter your login credentials
+Once you are there you have to sign in and authorize access
+
+3. Authorize access
+
+4. API Redirects to **YOUR_REDIRECT_URI** with code
+
+`https://YOUR_REDIRECT_URI/?code=18768d576dc182906bc1e030871bf79bf9da99a38c607c3ffbc60b3796b2f9d2`
+
+5. Exchange code for access and refresh token
+
+`POST https://API_URI/oauth/token`
+```json
+{
+  "client_id": YOUR_CLIENT_ID,
+  "client_secret": YOUR_CLIENT_SECRET,
+  "code": CODE,
+  "grant_type": "authorization_code",
+  "redirect_uri": YOUR_REDIRECT_URI
+}
+
+**Response:**
+```json
+{
+ "access_token": "de6780bc506a0446309bd93628...",
+ "token_type": "bearer", 
+ "expires_in": 7200,
+ "refresh_token": "8257e65c97202ed1726cf..."
+}
+```
+
+## Token lifetime
+
+Access tokens have expiration time specified in authentication flow response. The Web server OAuth authentication flow provide a refresh token that can be used to obtain a new access token. See [Refresh token documentation](#refresh-token-post-1)
 
 # Group Authentication
 
@@ -22,8 +80,8 @@ Exchange username and password for access token
             {
               "username": "person2@example.com",
               "password": "password",
-              "client_id": "7d7020ffca04275d74a72582af93653ea9f524b65959fc6dd75c3319cb500329",
-              "client_secret": "760ba39e5656875d071d927df60a29ed268dcc41ce30d16b72f7fcc387063c9c"
+              "client_id": "e23c8aa3b4df1561d3cdadfef2c095ecf14fc919f85c744d8ea485cb54f5473b",
+              "client_secret": "3baceb73ee3bb8b3f497ac03f9fab7990493f68db1aa709c2ec80486c696dd84"
             }
 
 + Response 200
@@ -35,12 +93,12 @@ Exchange username and password for access token
     + Body
 
             {
-              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjdkNzAyMGZmY2EwNDI3NWQ3NGE3MjU4MmFmOTM2NTNlYTlmNTI0YjY1OTU5ZmM2ZGQ3NWMzMzE5Y2I1MDAzMjkifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1MTY3OTk4MjYsImp0aSI6IjhlY2VmNzc1LTZkYmYtNGQ5ZS1hMDE1LTkxNjMxMGY4MzU0NyIsInVzZXIiOnsiaWQiOjIwMiwiZW1haWwiOiJwZXJzb24yQGV4YW1wbGUuY29tIn19.6OT8nu2hMYqQkz4HBsn1qpiFxinAaQEFJBEvL29CNovwTpu44tV9hYJd2HKmDGuBIbnW1wrl9G06Ns_xZFPZpg",
-              "token_type": "bearer",
+              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6ImUyM2M4YWEzYjRkZjE1NjFkM2NkYWRmZWYyYzA5NWVjZjE0ZmM5MTlmODVjNzQ0ZDhlYTQ4NWNiNTRmNTQ3M2IifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1Mzc1MDc2MDAsImp0aSI6IjJmZjFkNGZjLWUwYzMtNDU2OC1hNjQ0LTU2OTRlMGFhN2E2MiIsInVzZXIiOnsiaWQiOjk4LCJlbWFpbCI6InBlcnNvbjJAZXhhbXBsZS5jb20ifX0.lYBlIKvhjuVLFOTZVAU7E97z894c7yUyTHle5ZCZ1QAac59SUWuHooht8tiJKP4xkb9mIPxnAeFk4TdUBEzzVA",
+              "token_type": "Bearer",
               "expires_in": 60,
-              "refresh_token": "7fbde13a918b0927734425e0b8898945f636f383b30bfea84ad7d7d78ef321de",
-              "created_at": 1516799826,
-              "user_id": 202
+              "refresh_token": "f18f7ff422ad096099259b72c7ab629df7ace9a4d01500c94d0994a955700b48",
+              "created_at": 1537507600,
+              "user_id": 98
             }
 
 ### Refresh access token [POST /oauth/token?grant_type=refresh_token]
@@ -57,9 +115,9 @@ Refresh expired access token
     + Body
 
             {
-              "refresh_token": "295e164ec8933dc39b34101e645470bd",
-              "client_id": "940be275f15a19532811911ba5dd5521c6f0a4d93cb989a06bf88a9521ef52c9",
-              "client_secret": "a866f9399d8d63ed2f57997e5e62b982faa7cc8bef4cfd368032833936accada"
+              "refresh_token": "218366f0d39508bff3c5f00a004766fe",
+              "client_id": "6d3105e3601c79acbfe123b7785b9eddce5a4780a83a19eab239b77f3f35c3a5",
+              "client_secret": "82f70e4998d4365af9ca570627717c028dc43bd18a3422df6c17260a7cac5e57"
             }
 
 + Response 200
@@ -71,12 +129,12 @@ Refresh expired access token
     + Body
 
             {
-              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6Ijk0MGJlMjc1ZjE1YTE5NTMyODExOTExYmE1ZGQ1NTIxYzZmMGE0ZDkzY2I5ODlhMDZiZjg4YTk1MjFlZjUyYzkifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1MTY3OTk4MjYsImp0aSI6ImY0MTliZTRiLTFjN2UtNGIxNy1iOTRhLTJlNWY5NGNiZTM4MyIsInVzZXIiOnsiaWQiOjIwMywiZW1haWwiOiJwZXJzb24zQGV4YW1wbGUuY29tIn19.ws_PSWku6bDfrR8fwohOmd_DSkBklrWmSCGfa-sYNnuxR0paMPKdHWgMFMRwbk6Xtz6diyQ9thpfNlskmDX-Gw",
-              "token_type": "bearer",
+              "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjZkMzEwNWUzNjAxYzc5YWNiZmUxMjNiNzc4NWI5ZWRkY2U1YTQ3ODBhODNhMTllYWIyMzliNzdmM2YzNWMzYTUifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1Mzc1MDc2MDAsImp0aSI6ImJmMWIxMjU5LTg3OWEtNGZmYi1hMDBlLThmZmExZGU3NDRiYiIsInVzZXIiOnsiaWQiOjk5LCJlbWFpbCI6InBlcnNvbjNAZXhhbXBsZS5jb20ifX0.ntnmHXLR9ZD9glbBrpWQKoBIxJcW_1uGg8na5aqUSBjWdUR8tVyTZacSquBmfpJCd9DIV2vv3-OfBZcKo86ZSg",
+              "token_type": "Bearer",
               "expires_in": 60,
-              "refresh_token": "3307495fb1b11ac090a909ce49957809f7d7d64e99c09dac732029087587e9b9",
-              "created_at": 1516799826,
-              "user_id": 203
+              "refresh_token": "00a8202314efa9419882fd63e766da72cde4d347d136df4d2b8c4d7b459978fb",
+              "created_at": 1537507600,
+              "user_id": 99
             }
 
 # Group Countries
@@ -89,11 +147,12 @@ Refresh expired access token
 
 
 + Request returns countries
-**GET**&nbsp;&nbsp;`/api/v1/countries?null=`
+**GET**&nbsp;&nbsp;`/api/v1/countries`
 
     + Headers
 
             Accept: application/json
+            Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6ImQ2MjRlOWY0N2Q2ZmQ3MmQ3Y2JmYzBjZTQ1MzQ2OTkxYTA2OGNmMTU2MDcxMDExNTU0MjY3NGI3OTZiMWM1NDEifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1Mzc1MDc2MDAsImp0aSI6IjMwMDIxY2FiLTk2NTUtNGRmMy04OWQ3LWY0OGM0ZjNkZjg1NyIsInVzZXIiOnsiaWQiOjk3LCJlbWFpbCI6InBlcnNvbjFAZXhhbXBsZS5jb20ifX0.DmZ_Ewyrxkse3MMFLcOUGWhCaWdEstnuZl_Jhwl8Gbj86dnNrm4lJx1db6ed3oaUEfwOhTakbB1cVPvKkhZKSA
             Content-Type: application/json
 
 + Response 200
@@ -1140,24 +1199,29 @@ Refresh expired access token
     + Body
 
             {
-              "id": 204,
+              "id": 100,
+              "name": "",
+              "nickname": "",
               "email": "user@example.com",
-              "created_at": "2018-01-24T13:17:06.797Z",
-              "updated_at": "2018-01-24T13:17:06.797Z",
-              "role": "default"
+              "created_at": "2018-09-21T05:26:40.496Z",
+              "updated_at": "2018-09-21T05:26:40.496Z",
+              "role": "default",
+              "gold_to_send": 50,
+              "gold_received": 0
             }
 
 ### Get a user [GET /api/v1/users/{id}]
 
 + Parameters
-    + id: `205` (number, required)
+    + id: `101` (number, required)
 
 + Request returns a user
-**GET**&nbsp;&nbsp;`/api/v1/users/205?null=`
+**GET**&nbsp;&nbsp;`/api/v1/users/101`
 
     + Headers
 
             Accept: application/json
+            Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjY2MWE3NzI4ZTgxOWM0NjI5ZWJkMzJlMWIzZmU5MjVmMGVhMWVjMTEzNTViOGZjMzYyODE4MTg3ZDVjNGY4MWMifQ.eyJpc3MiOiJyYWlsc19hcGlfdGVtcGxhdGUiLCJpYXQiOjE1Mzc1MDc2MDAsImp0aSI6IjA2YWY3YTAwLTAyMDQtNGRmOC1iOTY1LTkyYjMxZjg1OWEwNiIsInVzZXIiOnsiaWQiOjEwMSwiZW1haWwiOiJwZXJzb240QGV4YW1wbGUuY29tIn19.1vBclf9ZeRVayf62NNaXTC1RRr9DILjZxwAXk1jTlSZxT86VW2wDCqpgWShlSkfrG9IWQDhbQync-C6mFckJyg
             Content-Type: application/json
 
 + Response 200
@@ -1169,9 +1233,13 @@ Refresh expired access token
     + Body
 
             {
-              "id": 205,
+              "id": 101,
+              "name": "",
+              "nickname": "",
               "email": "person4@example.com",
-              "created_at": "2018-01-24T13:17:06.819Z",
-              "updated_at": "2018-01-24T13:17:06.819Z",
-              "role": "default"
+              "created_at": "2018-09-21T05:26:40.502Z",
+              "updated_at": "2018-09-21T05:26:40.502Z",
+              "role": "default",
+              "gold_to_send": 50,
+              "gold_received": 0
             }
