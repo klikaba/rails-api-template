@@ -7,9 +7,8 @@ Doorkeeper.configure do
   # This block will be called to check whether the resource owner
   # is authenticated or not.
   resource_owner_authenticator do
-    # Put your resource owner authentication logic here.
-    # User.admin.find_by_id(session[:user_id]) ||
-    #   redirect_to(new_user_session_url)
+    session[:user_return_to] = request.fullpath
+    current_user || redirect_to(new_user_session_url)
   end
 
   resource_owner_from_credentials do
@@ -124,7 +123,7 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
   # grant_flows %w(authorization_code client_credentials)
-  grant_flows %w[password]
+  grant_flows %w[password authorization_code]
 
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.
