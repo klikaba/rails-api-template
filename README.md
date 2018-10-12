@@ -63,7 +63,7 @@ Authentication is implemented using [Doorkeeper]() and [JWT token standard]() im
 
 This project will run static code analyser on every commit and full test suite on git push.
 
-### Static code analyzer
+### Static code analyser
 This template us using [Rubocop](https://github.com/rubocop-hq/rubocop) for static code analysis. All rubocop offenses are automatically tracked and prevented on every commit. This feature is handled by [Overcommit](https://github.com/brigade/overcommit) git hook manager.
 
 ### Testing
