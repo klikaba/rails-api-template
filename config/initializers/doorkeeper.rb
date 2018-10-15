@@ -19,9 +19,11 @@ Doorkeeper.configure do
 
     user = User.find_for_database_authentication(email: params[:username])
 
-    password = user.valid_for_authentication? do
-      user.valid_password?(params[:password])
-    end if user
+    if user
+      password = user.valid_for_authentication? do
+        user.valid_password?(params[:password])
+      end
+    end
 
     user if application && user && password
   end
