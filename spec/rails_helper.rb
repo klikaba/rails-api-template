@@ -2,7 +2,7 @@
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
 if Rails.env.production?
@@ -70,7 +70,9 @@ RSpec.configure do |config|
 end
 
 Dox.configure do |config|
-  config.header_file_path = Rails.root.join('spec/docs/v1/descriptions/header.md')
-  config.desc_folder_path = Rails.root.join('spec/docs/v1/descriptions')
+  # too dumm for better LineLength avoidance
+  base_path = 'spec/docs/v1/descriptions'
+  config.header_file_path = Rails.root.join("#{base_path}/header.md")
+  config.desc_folder_path = Rails.root.join(base_path)
   config.headers_whitelist = %w[Accept Authorization]
 end
