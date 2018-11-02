@@ -19,7 +19,7 @@ module RailsApiTemplate
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths << "#{Rails.root}/lib"
 
-    config.middleware.insert_before 0, "Rack::Cors" do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins %w{
           localhost
