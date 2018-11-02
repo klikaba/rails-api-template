@@ -78,3 +78,4 @@ Setup for [Circle CI](https://circleci.com/)
 ## Maintainers
 
 - [Muamer Ribica](https://github.com/mribica)
+- [Zaharije Pasalic](https://github.com/zpasal)

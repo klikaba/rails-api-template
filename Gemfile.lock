@@ -124,6 +124,7 @@ GEM
     powerpack (0.1.2)
     puma (3.11.0)
     rack (2.0.5)
+    rack-cors (1.0.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.1)
@@ -252,6 +253,7 @@ DEPENDENCIES
   overcommit
   pg (~> 0.18.4)
   puma (~> 3.7)
+  rack-cors
   rails (~> 5.2.1)
   rspec-rails
   rspec_junit_formatter

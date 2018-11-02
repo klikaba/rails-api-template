@@ -9,6 +9,7 @@ end
 
 ruby File.read('.ruby-version').match(/\d\.\d.\d/)[0]
 
+gem 'rack-cors', :require => 'rack/cors'
 gem 'devise'
 gem 'doorkeeper', '~> 4.4.2'
 gem 'doorkeeper-jwt'
