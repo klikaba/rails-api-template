@@ -149,7 +149,7 @@ Doorkeeper::JWT.configure do
     user = User.find(opts[:resource_owner_id])
 
     {
-      iss: Rails.application.class.parent.to_s.underscore,
+      iss: Rails.application.class.module_parent.to_s.underscore,
       iat: Time.now.utc.to_i,
       jti: SecureRandom.uuid,
       user: {
