@@ -130,7 +130,8 @@ GEM
     parser (2.7.2.0)
       ast (~> 2.4.1)
     pg (0.18.4)
-    puma (3.12.6)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -268,7 +269,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   overcommit
   pg (~> 0.18.4)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rack-cors
   rails (~> 6.0)
   rspec-rails
